@@ -19,7 +19,14 @@ private:
     const size_t data_len;
 
 };
-#define LOAD_RESOURCE(RESOURCE) ([]() {                      \
-        extern const char _resource_##RESOURCE[]; extern const size_t _resource_##RESOURCE##_len;   \
-        return Resource(_resource_##RESOURCE, _resource_##RESOURCE##_len);  \
-    })()
+#ifdef __cplusplus
+#define LOAD_RESOURCE(varname, RESOURCE)   \
+    extern "C" {   \
+    extern const char _resource_##RESOURCE[]; extern const size_t _resource_##RESOURCE##_len;   \
+    }   \
+    auto varname = Resource(_resource_##RESOURCE, _resource_##RESOURCE##_len);
+#else
+#define LOAD_RESOURCE(varname, RESOURCE)   \
+    extern const char _resource_##RESOURCE[]; extern const size_t _resource_##RESOURCE##_len;   \
+    auto varname = Resource(_resource_##RESOURCE, _resource_##RESOURCE##_len);
+#endif
