@@ -49,7 +49,7 @@ int main(int argc, char** argv)
   }
 
   ofs << "#include <stdlib.h>" << std::endl;
-  ofs << "const char _resource_" << sym << "[] = {" << std::endl;
+  ofs << "extern unsigned char const _resource_" << sym << "[] = {" << std::endl;
 
   size_t lineCount = 0;
   for (int i = 0; i < resource_byte_size; ++i)
@@ -64,7 +64,7 @@ int main(int argc, char** argv)
   }
 
   ofs << "};" << std::endl;
-  ofs << "const size_t _resource_" << sym << "_len = sizeof(_resource_" << sym
+  ofs << "extern size_t const _resource_" << sym << "_len = sizeof(_resource_" << sym
       << ");";
 
   ofs.close();
