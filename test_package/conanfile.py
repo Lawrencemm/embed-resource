@@ -12,7 +12,11 @@ class EmbedresourceTestConan(ConanFile):
         # Current dir is "test_package/build/<build_id>" and CMakeLists.txt is
         # in "test_package"
         cmake.configure()
-        self.run('. ./activate.sh')
+        activate_command = (
+            'activate.bat' if self.settings.os == 'Windows' else
+            '. ./activate.sh'
+        )
+        self.run(activate_command)
         cmake.build()
 
     def imports(self):

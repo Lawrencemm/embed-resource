@@ -31,7 +31,7 @@ class EmbedresourceConan(ConanFile):
     def package(self):
         self.copy("Resource.h", dst="include", src=SOURCE_FOLDER)
         self.copy("embed-resource", dst="bin", keep_path=False)
-        self.copy("embed-resource.exe", dst="bin", keep_path=False)
+        self.copy("*embed-resource.exe", dst="bin", keep_path=False)
         self.copy('embed-resource.cmake', dst='cmake', src=SOURCE_FOLDER)
 
     def package_info(self):
