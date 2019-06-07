@@ -8,7 +8,7 @@ SOURCE_FOLDER = 'src'
 
 class EmbedresourceConan(ConanFile):
     name = "embed-resource"
-    version = "0.1"
+    version = "0.2"
     license = "<Put the package license here>"
     author = "<Put your name here> <And your email here>"
     url = "https://github.com/lawrencem99/embed-resource.git"

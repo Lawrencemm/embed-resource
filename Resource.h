@@ -21,4 +21,4 @@ private:
 };
 #define LOAD_RESOURCE(varname, RESOURCE)   \
     extern const unsigned char _resource_##RESOURCE[]; extern const size_t _resource_##RESOURCE##_len;   \
-    auto varname = Resource(_resource_##RESOURCE, _resource_##RESOURCE##_len);
+    static auto varname = Resource(_resource_##RESOURCE, _resource_##RESOURCE##_len);

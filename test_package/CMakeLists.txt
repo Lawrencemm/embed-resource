@@ -8,4 +8,4 @@ include(${CMAKE_BINARY_DIR}/scripts/embed-resource.cmake)
 
 embed_resources(RESOURCES resource.txt)
 
-add_executable(example example.cpp ${RESOURCES})
+add_executable(example example.cpp second_definition.cpp ${RESOURCES})
